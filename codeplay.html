@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>CodePlay</title>
+    <link rel="icon" href="image/myspace.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui-1.10.3.custom.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .shit{
+            margin-top: 10px;
+        }
+        #divButton{
+            float: right;
+            padding: 10px 10px 0 0;
+        }
+
+
+        .clear{
+            clear: both;
+        }
+        .containerDiv{
+            margin-top: -20px;
+            width: 50%;
+            height: 100%;
+           // background: blue;
+            position: relative;
+            float: left;
+        }
+        .containerDiv textarea{
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-right: 1px solid grey;
+            font-family: monospace;
+            font-size: 100%;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+        .codeLabel{
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 100%;
+            font-weight: bold;
+            /*width: 70px;*/
+            /*height: 30px;*/
+            /*padding: 5px 0 0 10px;*/
+            /*box-shadow: 0px 0px 5px 1px grey;*/
+            /*background: #fff;*/
+        }
+        #CSSContainer,#JSContainer{
+            display: none;
+                   }
+       iframe{
+            width: 100%;
+            height: 100%;
+            left: 20px;
+            /*position: relative;*/
+        }
+    </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Codeplay</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <div class="col-md-6 col-md-offset-3 shit">
+                <ul class="nav navbar-nav btn-group" id="shift" >
+                <li class="toggle btn btn-default active">HTML</li>
+                <li class="toggle btn btn-default">CSS</li>
+                <li class="toggle btn btn-default">JS</li>
+                <li class="toggle btn btn-default active">RESULT</li>
+            </ul>
+            </div>
+
+
+            <div id="divButton" class="navbar-right">
+                <button class="btn btn-default" id="runBut">Run</button>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+
+<div class="containerDiv" id="HTMLContainer">
+    <div class="codeLabel">HTML</div>
+ <textarea id="htmlCode">HTML </textarea>
+</div>
+
+<div class="containerDiv" id="CSSContainer">
+    <div class="codeLabel">CSS</div>
+    <textarea id="cssCode">css</textarea>
+</div>
+<div class="containerDiv" id="JSContainer">
+    <div class="codeLabel">JS</div>
+    <textarea id="jsCode">JS</textarea>
+</div>
+<div class="containerDiv" id="RESULTContainer">
+    <div class="codeLabel"></div>
+    <iframe id="jsworking">RESULT</iframe>
+</div>
+
+<script>
+    var windowsheight=$(window).height();
+    var menuBar=$(".navbar").height();
+    var containerDivheight=windowsheight-menuBar;
+    $(".containerDiv").height(containerDivheight);
+
+    $(".toggle").click(function(){
+       $(this).toggleClass("active") ;
+        var activediv = $(this).html();
+
+            $("#"+activediv+"Container").toggle();
+
+        var divActivated=$(".containerDiv").filter(function(){
+            return($(this).css("display")!="none");
+        }).length;
+             var width=100/divActivated;
+             $(".containerDiv").width(width+"%");
+    });
+
+     $("#runBut").click(function(){
+        $("iframe").contents().find("html").html('<style>'+$("#cssCode").val()+'</style>'+'<html>'+$("#htmlCode").val()+'</html>');
+         document.getElementById("jsworking").contentWindow.eval($("#jsCode").val());
+     });
+</script>
+</body>
+</html>
