@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Landing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script  src="js/bootstrap.js"></script>
+    <script  src="js/bootstrap.min.js"></script>
+    <link  href="css/bootstrap.min.css" rel="stylesheet" >
+    <link  href="css/bootstrap.css" rel="stylesheet" >
+
+    <style>
+        .navbar-brand{
+            font-size: 1.8em;
+        }
+        #topCover{
+            background:url("image/blue3.jpg") no-repeat ;
+           height: 400px;
+            width: 100%;
+            background-size: cover;
+
+
+        }
+        #Mytopgist{
+
+            font-size: 300%;
+        }
+        #topRow{
+            margin-top: 100px;
+            text-align: center;
+            //color: #9acfea;
+
+        }
+        .bold{
+            font-weight: bold;
+        }
+        .marginTop{
+           margin-top:30px;
+        }
+        .marginBottom{margin-bottom: 20px;}
+        .center{
+            text-align: center;
+        }
+        .title{
+            margin-top: 100px;
+            font-size: 300%;
+        }
+        .big{font-size: 30px;color: #1b6d85}
+        #footer{background: #31b0d5;width: 100%;padding-top: 70px;}
+        .Imagesize{width: 50px;}
+    </style>
+</head>
+<body  data-spy="scroll" data-target=".navbar-collapse">
+
+       <div class = "navbar navbar-inverse navbar-fixed-top" >
+           <div class="container">
+               <div class="navbar-header">
+                   <a href="landing.html" class="navbar-brand">My App</a>
+
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="
+                   .navbar-collapse">
+                       <span class = "sr-only"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                           </button>
+
+               </div>
+               <div class="collapse navbar-collapse" >
+                   <ul class="nav navbar-nav">
+                       <li class="active" ><a href="#home">Home</a> </li>
+                       <li ><a href="#about">About</a> </li>
+                       <li ><a href="#download">Download App</a> </li>
+
+                   </ul>
+
+
+                   <form  class = "navbar-form navbar-right">
+                       <div class="form-group">
+                           <input type="email" class="form-control" name = "email" id="email" placeholder="Email">
+                       </div>
+                       <div class="form-group">
+                           <input type="password" class="form-control" name = "password" id="password"placeholder="password"/>
+                       </div>
+
+                       <div class="form-group">
+                           <input type="submit" class="btn btn-success" value="Log In" name = "login" />
+                       </div>
+                   </form>
+
+               </div>
+
+           </div>
+
+
+       </div>
+
+                 <div class="container coverContainer"  id = "topCover" >
+                     <div class="row" id="home">
+                         <div class="col-md-6 col-md-offset-3" id="topRow">
+                            <h1 id="Mytopgist">My Application</h1>
+
+                             <p class="lead">This is why you should download this app.</p>
+                             <p>To get more details about this app you can join our mailing list.</p>
+                             <p class="bold">Submit your mail bellow!</p>
+
+                             <form>
+                                 <div class="input-group">
+                                     <span class="input-group-addon">@</span>
+                                     <input type="email" class="form-control" name="email" placeholder="your email">
+
+                                 </div>
+                                 <input type="submit" class="btn btn-success btn-lg marginTop" value="submit">
+
+                             </form>
+                         </div>
+
+                     </div>
+
+                 </div>
+
+       <div class="container coverContainer" >
+           <div class="row" class = "center marginTop" id="about">
+           <h2 class = "center title">Why this App is Awesome</h2>
+               <p class = "lead center">This app will give you a over view of what music entails.</p>
+
+           </div>
+
+           <div class="row marginBottom" >
+               <div class="col-md-4 marginTop">
+
+                   <h2> <span class=" glyphicon glyphicon-globe big"></span>Header</h2>
+                   <p>A brief description about the app,and essential features you may love to know</p>
+                   <button class="btn btn-success marginTop">Sign up</button>
+               </div>
+               <div class="col-md-4 marginTop">
+
+                   <h2><span class=" glyphicon glyphicon-bell big"></span>Header</h2>
+                   <p>A brief description about the app,and essential features you may love to know</p>
+                   <button class="btn btn-success marginTop">Sign up</button>
+               </div>
+               <div class="col-md-4 marginTop">
+
+                   <h2><span class=" glyphicon glyphicon-apple big"></span>Header</h2>
+                   <p>A brief description about the app,and essential features you may love to know</p>
+                   <button class="btn btn-success marginTop">Sign up</button>
+               </div>
+           </div>
+
+       </div>
+
+       <div class="container coverContainer" id = "footer">
+            <div class="row" id="download">
+                <h1 class="center title">Download the App!!</h1>
+                <p class="center lead">Why should i download this App?</p>
+                <p class="center"><img src="image/myspace.png" class="Imagesize"></p>
+            </div>
+       </div>
+
+      <script>
+              $(".coverContainer").css("min-height",$(window).height());
+
+      </script>
+</body>
+</html>
